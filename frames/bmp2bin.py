@@ -2,13 +2,19 @@ import os
 FOLDER_PATH = dir_path = os.path.dirname(os.path.realpath(__file__))
 print(FOLDER_PATH)
 os.chdir(FOLDER_PATH)
-imgNames = [x[:-4] for x in os.listdir(FOLDER_PATH) if x[-4:] == ".bmp"]
+imgs = [x[:-4] for x in os.listdir(FOLDER_PATH) if x[-4:] == ".bmp"]
 
-for x in imgNames:
-    command = "bmp2oac2 " + x
-    os.system(command)
+if os.name == "posix":
+    bmp = "wine bmp2oac2 "
+    delete = "rm -f *bmp *.s *.mif"
+else:
+    bmp = "bmp2oac2 "
+    delete = "del /q *.bmp *.s *.mif"
 
 
-command = "del /q *.bmp *.s *.mif"
-os.system(command)
+for x in imgs:
+    os.system(bmp + x)
+
+
+os.system(delete)
 print("bmp2bin terminado")
