@@ -1,6 +1,6 @@
 .data 
 
-SL:		.string "video.bin"
+SL:	.string "video.bin"
 PTBR:	.string "ptbr.bin"
 JAP:	.string "jap.bin"
 ignore:	.byte 0x00
