@@ -36,7 +36,6 @@ li 	s0,0xFF000000		#inicio da frame 0
 	mv s6,a0
 	la t0,DESCS
 	sw a0,0(t0)
-
 	jal a0,SET_M
 
 
